@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Outlet Listing{% endblock %}
+
+
+{% block page_content %}
+    {{super()}}
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Name</td>
+			<td>Channel</td>
+            <td>Unit</td>
+            <td>Turn On</td>
+            <td>Turn Off</td>
+            <td>Delete</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for outlet in outlets %}
+         <tr>
+            <td>{{outlet.name}}</td>
+			<td>{{outlet.channel}}</td>
+            <td>{{outlet.unit}}</td>
+            <td><a href="{{url_for('turn_on_view',id=outlet.id)}}">Turn On</a></td>
+            <td><a href="{{url_for('turn_off_view',id=outlet.id)}}">Turn Off</a></td>
+            <td><a href="{{url_for('remove_outlet',id=outlet.id)}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{url_for('add_outlet')}}">Add Outlet</a>
+{% endblock %}

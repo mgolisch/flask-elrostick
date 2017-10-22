@@ -1,0 +1,26 @@
+{
+    "name": "Flask Elrostick",
+    "version": "0.1",
+    "slug": "flask-elrostick",
+    "description": "provides an mqtt based switch for intertechno/elro 433mhz outlets with a configuration ui",
+    "startup": "before",
+    "boot": "auto",
+    "devices": ["/dev/elrostick:/dev/elrostick:rwm"],
+    "options": {
+        "db_file": "/data/elrostick.db",
+        "mqtt_broker":"core-mosquitto",
+        "mqtt_port":1883,
+        "mqtt_username":null,
+        "mqtt_password":null
+    },
+    "schema": {
+        "db_file": "str",
+        "mqtt_broker":"str",
+        "mqtt_port":"int",
+        "mqtt_username":"str",
+        "mqtt_password":"str"
+    },
+    "ports": {
+      "5000/tcp": 5000
+    }
+  }
