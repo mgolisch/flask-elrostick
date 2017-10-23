@@ -7,3 +7,4 @@ instance/*
 fabfile.py
 .vscode/*
 .db
+run-dev.sh
